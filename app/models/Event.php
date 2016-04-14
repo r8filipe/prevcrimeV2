@@ -14,19 +14,19 @@ class Event extends Model
         'lat', 'long', 'sub_category_id', 'local_type_id', 'address', 'created_at'
     ];
 
-    public function sub_category()
+    public function subcategory()
     {
-        return $this->hasOne('Sub_category', 'sub_category_id', 'id');
+        return $this->belongsTo('App\Subcategory', 'sub_category_id', 'id');
     }
 
-    public function local_type()
+    public function category()
     {
-        return $this->hasOne('App\Local_type', 'id', 'local_type_id');
+        return $this->hasOne('App\Category', 'id', 'sub_category_id');
     }
 
-    public function photo()
+    public function localtype()
     {
-        return $this->hasMany('App\Photo');
+        return $this->hasOne('App\Localtype', 'id', 'local_type_id');
     }
 
 }

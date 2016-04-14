@@ -27,7 +27,7 @@
                                 anchor: [0.5, 0.75],
                                 scale: 1,
                                 opacity: 0.75,
-                                src: 'ol/icons/marker.png'
+                                src: 'ol/icons/{{$event->sub_category->category->icon}}.png'
                             }))
                         });
                         iconFeature.setStyle(iconStyle);

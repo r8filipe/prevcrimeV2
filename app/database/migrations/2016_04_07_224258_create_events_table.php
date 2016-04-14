@@ -16,7 +16,7 @@ class CreateEventsTable extends Migration
             $table->increments('id');
             $table->string('lat');
             $table->string('long');
-            $table->integer('sub_category_id');
+            $table->integer('sub_category_id')->unsigned();
             $table->integer('local_type_id');
             $table->string('address');
             $table->timestamps();

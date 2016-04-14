@@ -33,15 +33,14 @@
                             </thead>
                             <tbody>
                             @foreach($events as $event)
-                                dd($event)
                                 <tr class="gradeU">
                                     <td>{{$event->id}}</td>
                                     <td>{{$event->address}}</td>
                                     <td class="center">{{$event->lat}}</td>
                                     <td class="center">{{$event->long}}</td>
-                                    {{--<td class="center">{{$event->sub_category->category->description}}</td>--}}
+                                    <td class="center">{{$event->sub_category->category->description}}</td>
                                     <td class="center">{{$event->sub_category->description}}</td>
-                                    {{--<td class="center">{{$event->local_type->description}}</td>--}}
+                                    <td class="center">{{$event->localtype->description}}</td>
                                     <td class="center">{{$event->created_at}}</td>
                                     <td class="center">-</td>
                                 </tr>

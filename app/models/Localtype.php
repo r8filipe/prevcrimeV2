@@ -4,7 +4,7 @@ namespace App;
 
 use Illuminate\Database\Eloquent\Model;
 
-class Local_type extends Model
+class Localtype extends Model
 {
     //
     public $timestamp = true;

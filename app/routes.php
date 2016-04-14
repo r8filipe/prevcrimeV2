@@ -12,7 +12,10 @@
 */
 
 Route::get('/', function () {
-    return View::make('hello');
+    $event = \App\Event::find(1);
+    $i = 99;
+    var_dump($event->subcategory->category);
+
 });
 
 Route::get('/events', 'EventsController@getEvents');
