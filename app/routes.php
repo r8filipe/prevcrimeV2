@@ -11,13 +11,29 @@
 |
 */
 
-Route::get('/', function () {
-    $event = \App\Event::find(1);
-    $i = 99;
-    var_dump($event->subcategory->category);
+//Authenticating routes
+Route::post('/login', 'AuthController@postLogin');
+Route::post('/login', 'AuthController@postRegister');
+Route::get('/logout', 'AuthController@getLogout');
 
+Route::get('/register', function () {
+    if (Auth::check()) {
+        $events = App\Event::all();
+        return View::make('events', ['events' => $events]);
+    }
+    return View::make('auth.register');
 });
 
-Route::get('/events', 'EventsController@getEvents');
+//Administrator routes
+Route::get('/map', array('before' => 'auth', 'uses' => 'EventsController@getMapEvents'));
+Route::get('/events', array('before' => 'auth', 'uses' => 'EventsController@getEvents'));
 
-Route::get('/map', 'EventsController@getMapEvents');
+Route::get('/', array('before' => 'auth', function () {
+    if (Auth::check()) {
+        $events = App\Event::all();
+        return View::make('events', ['events' => $events]);
+    }
+    return View::make('auth.login');
+}));
+
+
