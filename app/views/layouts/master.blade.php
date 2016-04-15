@@ -1,5 +1,13 @@
 {{--<!DOCTYPE html>--}}
-<html lang="en">
+<?php
+if(isset($_GET['lang'])){
+    if($_GET['lang']=='en')
+        App::setLocale('en');
+    else if($_GET['lang']=='pt')
+        App::setLocale('pt');
+}
+?>
+<html>
 
 <head>
 
@@ -9,7 +17,7 @@
     <meta name="description" content="">
     <meta name="author" content="">
 
-    <title>PrevCrime Admin</title>
+    <title>{{Lang::get('masterI18n.title');}}</title>
     <!-- OpenLayers 3 CSS -->
     <link href="/ol/ol.css" rel="stylesheet">
 
@@ -59,7 +67,7 @@
                 <span class="icon-bar"></span>
                 <span class="icon-bar"></span>
             </button>
-            <a class="navbar-brand" href="/index.html">Prevcrime</a>
+            <a class="navbar-brand" href="/index.html">{{Lang::get('masterI18n.appName');}}</a>
         </div>
         <!-- /.navbar-header -->
 
@@ -125,6 +133,15 @@
                 <!-- /.dropdown-alerts -->
             </li>
             <!-- /.dropdown -->
+            <!--  -->
+            <a href="/pt">
+                <img src="/images/flags/Portugal.png" />
+            </a>
+            <!-- /.image -->
+            <a href="/en">
+                <img src="/images/flags/England.png" />
+            </a>
+            <!-- /.image -->
             <li class="dropdown">
                 <a class="dropdown-toggle" data-toggle="dropdown" href="/#">
                     <i class="fa fa-user fa-fw"></i>  <i class="fa fa-caret-down"></i>
@@ -149,7 +166,7 @@
                 <ul class="nav" id="side-menu">
                     <li class="sidebar-search">
                         <div class="input-group custom-search-form">
-                            <input type="text" class="form-control" placeholder="Search...">
+                            <input type="text" class="form-control" placeholder="{{Lang::get('masterI18n.search');}}">
                                 <span class="input-group-btn">
                                 <button class="btn btn-default" type="button">
                                     <i class="fa fa-search"></i>
@@ -159,10 +176,10 @@
                         <!-- /input-group -->
                     </li>
                     <li>
-                        <a href="/events"><i class="fa fa-bug"></i> Ocorrencias</a>
+                        <a href="/events"><i class="fa fa-bug"></i> {{Lang::get('masterI18n.menuOcurrencies');}}</a>
                     </li>
                     <li>
-                        <a href="/map"><i class="fa fa-globe"></i> Mapa</a>
+                        <a href="/map"><i class="fa fa-globe"></i> {{Lang::get('masterI18n.menuMap');}}</a>
                     </li>
                 </ul>
             </div>

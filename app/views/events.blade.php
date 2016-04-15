@@ -3,7 +3,7 @@
 @section('content')
     <div class="row">
         <div class="col-lg-12">
-            <h1 class="page-header">Eventos</h1>
+            <h1 class="page-header">{{Lang::get('eventsI18n.title');}}</h1>
         </div>
         <!-- /.col-lg-12 -->
     </div>
@@ -12,7 +12,7 @@
         <div class="col-lg-12">
             <div class="panel panel-default">
                 <div class="panel-heading">
-                    Listagem dos Eventos
+                    {{Lang::get('eventsI18n.containerTitle');}}
                 </div>
                 <!-- /.panel-heading -->
                 <div class="panel-body">
@@ -20,15 +20,15 @@
                         <table class="table table-striped table-bordered table-hover" id="dataTables-example">
                             <thead>
                             <tr>
-                                <th>ID</th>
-                                <th>Morada</th>
-                                <th>Latitude</th>
-                                <th>Longitude</th>
-                                <th>Categoria</th>
-                                <th>Ocorrência</th>
-                                <th>Local</th>
-                                <th>Data/Hora</th>
-                                <th>Opções</th>
+                                <th>{{Lang::get('eventsI18n.columnId');}}</th>
+                                <th>{{Lang::get('eventsI18n.columnAddress');}}</th>
+                                <th>{{Lang::get('eventsI18n.columnLatitude');}}</th>
+                                <th>{{Lang::get('eventsI18n.columnLongitude');}}</th>
+                                <th>{{Lang::get('eventsI18n.columnCategory');}}</th>
+                                <th>{{Lang::get('eventsI18n.columnOcurrency');}}</th>
+                                <th>{{Lang::get('eventsI18n.columnLocal');}}</th>
+                                <th>{{Lang::get('eventsI18n.columnDateTime');}}</th>
+                                <th>{{Lang::get('eventsI18n.columnOptions');}}</th>
                             </tr>
                             </thead>
                             <tbody>

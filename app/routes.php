@@ -11,13 +11,17 @@
 |
 */
 
-Route::get('/', function () {
-    $event = \App\Event::find(1);
-    $i = 99;
-    var_dump($event->subcategory->category);
-
-});
-
 Route::get('/events', 'EventsController@getEvents');
 
 Route::get('/map', 'EventsController@getMapEvents');
+
+Route::get('/{lang}', function ($lang) {
+    App::setLocale($lang);
+    $events = App\Event::all();
+    return View::make('events', ['events' => $events]);
+
+    //temos de deixar trabalho para o Joel
+    //amanha vou acabar o registar e comecar a fazer novamente o webservice
+    // e vou ter de fazer alterações em alguma coisas
+    
+});
